@@ -5,14 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Session;
 
 import com.revature.models.ERSUser;
 import com.revature.util.ConnectionUtil;
+import com.revature.util.HibernateUtil;
 
 public class UserDAOImp implements UserDAO {
 
@@ -21,20 +25,9 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public ERSUser getUserByUsername(String username) {
 		ERSUser e = new ERSUser();
-		try (Connection conn = ConnectionUtil.getConnection()){
-			String sql = "SELECT * FROM ers_users where ers_username=?";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, username);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				 e = new ERSUser(rs.getInt("ers_users_id"),rs.getString("ers_username"),rs.getString("ers_password"), rs.getString("user_first_name"),rs.getString("user_last_name"), rs.getString("user_email"),rs.getInt("user_role_id"));
-				 return e;
-			}
-		} catch(SQLException s) {
-			s.printStackTrace();
-		}
+		
 	
-		return null;
+		return e;
 	}
 
 	@Override
@@ -44,20 +37,38 @@ public class UserDAOImp implements UserDAO {
 	}
 
 	@Override
-	public Set<ERSUser> getAllUsers() {
-		Set<ERSUser> allUsers = new TreeSet<>();
-		try (Connection conn = ConnectionUtil.getConnection()){
-			String sql = "SELECT * FROM ers_users;";
-			Statement stt = conn.createStatement();
-			ResultSet rs = stt.executeQuery(sql);
-			while (rs.next()) {
-			ERSUser e = new ERSUser(rs.getInt("ers_users_id"),rs.getString("ers_username"),rs.getString("ers_password"), rs.getString("user_first_name"),rs.getString("user_last_name"), rs.getString("user_email"),rs.getInt("user_role_id"));
-			allUsers.add(e);
-			}
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return allUsers;
+	public List<ERSUser> getAllUsers() {
+		Session sess = HibernateUtil.getSession();
+		List<ERSUser> userList =sess.createQuery("FROM ERSUser", ERSUser.class).list();
+		
+		return userList;
+		
 	}
+
+	@Override
+	public ERSUser getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addUser(ERSUser u) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateUser(ERSUser u) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeUser(int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 }

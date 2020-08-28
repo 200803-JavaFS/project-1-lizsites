@@ -7,14 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class seeReimbursementsServlet extends HttpServlet{
+import com.revature.controllers.ReimbursementsController;
 
-	
+public class ReimbursementsServlet extends HttpServlet{
+
+	private static ReimbursementsController rc = new ReimbursementsController();
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		rc.seeReimbursements(req, res);
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	doGet(req,res);
+	
+	
+	}
 }

@@ -28,8 +28,7 @@ public class LoginControllers {
 			sesh.setAttribute("user", l);
 			sesh.setAttribute("loggedin" , true);
 			res.setStatus(200);
-			res.setContentType("text/html");
-			req.getRequestDispatcher("reimbursements.html").forward(req,res);
+			req.getRequestDispatcher("reimbursements").forward(req,res);
 		} else {
 			/*
 			 * Forbidden

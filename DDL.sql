@@ -1,17 +1,17 @@
 drop table if exists ers_user_roles;
 drop table if exists ers_reimbursement_type;
 drop table if exists ers_reimbursement_status;
-dropt table if exists ers_users;
+drop table if exists ers_users;
 drop table if exists ers_reimbursement;
 create table ers_user_roles (ERS_USER_ROLE_ID SERIAL primary key, USER_ROLE varchar(10) not null);
-create table ers_reimbursement_type (REIM_TYPE_ID SERIAL primary key, REIMB_TYPE varchar(10) NOT NULL);
+create table ers_reimbursement_type (REIMB_TYPE_ID SERIAL primary key, REIMB_TYPE varchar(10) NOT NULL);
 create table ers_reimbursement_status (REIMB_STATUS_ID SERIAL primary key, REIMB_STATUS varchar(10)not NULL);
 create table ers_users (ERS_USERS_ID SERIAL primary key, ERS_USERNAME varchar(50) not NULL, ERS_PASSWORD varchar(50) not NULL, USER_FIRST_NAME varchar(100) not NULL, USER_LAST_NAME varchar(100) not NULL, USER_EMAIL varchar(150) not null, USER_ROLE_ID Integer references ers_user_roles not NULL);
 
-create table ers_reimbursement (REIMB_ID SERIAL primary key, REIMB_AMOUNT numeric(12,2) not null, REIMB_SUBMITTED TIME not null, REIMB_RESOLVED TIME, REIMB_DESCRIPTION VARCHAR(250), REIMB_AUTHOR Integer references ers_users not null , REIMB_RESOLVER Integer references ers_users, REIMB_STATUS_ID Integer references ers_reimbursement_status not null, REIMB_TYPE_ID integer references ers_reimbursement_type not null); 
+create table ers_reimbursement (REIMB_ID SERIAL primary key, REIMB_AMOUNT numeric(12,2) not null, REIMB_SUBMITTED TIMESTAMP not null, REIMB_RESOLVED TIMESTAMP, REIMB_DESCRIPTION VARCHAR(250), REIMB_AUTHOR Integer references ers_users not null , REIMB_RESOLVER Integer references ers_users, REIMB_STATUS_ID Integer references ers_reimbursement_status not null, REIMB_TYPE_ID integer references ers_reimbursement_type not null); 
 drop function getTime();
-create or replace function getTime() returns time with time zone as 
-$$ select current_time;
+create or replace function getTime() returns TIMESTAMP with time zone as 
+$$ select current_timestamp;
 $$ language sql;
 insert into ers_user_roles (user_role) values ('admin');
 insert into ers_reimbursement_type (reimb_type) values ('FOOD');
