@@ -1,8 +1,11 @@
-drop table if exists ers_user_roles;
+
+
+
+drop table if exists ers_reimbursement;
+drop table if exists ers_users;
 drop table if exists ers_reimbursement_type;
 drop table if exists ers_reimbursement_status;
-drop table if exists ers_users;
-drop table if exists ers_reimbursement;
+drop table if exists ers_user_roles;
 create table ers_user_roles (ERS_USER_ROLE_ID SERIAL primary key, USER_ROLE varchar(10) not null);
 create table ers_reimbursement_type (REIMB_TYPE_ID SERIAL primary key, REIMB_TYPE varchar(10) NOT NULL);
 create table ers_reimbursement_status (REIMB_STATUS_ID SERIAL primary key, REIMB_STATUS varchar(10)not NULL);

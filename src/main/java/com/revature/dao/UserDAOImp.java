@@ -1,21 +1,16 @@
 package com.revature.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+
+import javax.persistence.Query;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.ERSUser;
-import com.revature.util.ConnectionUtil;
 import com.revature.util.HibernateUtil;
 
 public class UserDAOImp implements UserDAO {
@@ -24,10 +19,16 @@ public class UserDAOImp implements UserDAO {
 	
 	@Override
 	public ERSUser getUserByUsername(String username) {
-		ERSUser e = new ERSUser();
-		
 	
-		return e;
+		Session sess = HibernateUtil.getSession();
+		Query query  =sess.createQuery("FROM ERSUser where username =:username ", ERSUser.class);
+		query.setParameter(1, username);
+		List<ERSUser> u = query.getResultList();
+		if (u.size()==1) {
+			return u.get(0);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -47,20 +48,43 @@ public class UserDAOImp implements UserDAO {
 
 	@Override
 	public ERSUser getUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = HibernateUtil.getSession();
+		Query query = sess.createQuery("FROM ERSUser where email=:email", ERSUser.class);
+		query.setParameter(1, email);
+		List<ERSUser> u = query.getResultList();
+		if (u.size() == 1) {
+			return u.get(0);
+		} else if (u.size() >1){
+			userLogger.warn("Error in getUserByEmail() multiple users have been pulled");
+			return null;
+		} else {
+			userLogger.info("no user by " + email +" found by getUserByEmail");
+			return null;
+		}
 	}
 
 	@Override
 	public boolean addUser(ERSUser u) {
-		// TODO Auto-generated method stub
-		return false;
+		Session sess = HibernateUtil.getSession();
+		try {
+		sess.save(u);
+		return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean updateUser(ERSUser u) {
-		// TODO Auto-generated method stub
-		return false;
+		Session sess = HibernateUtil.getSession();
+		try {
+		sess.merge(u);
+		return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

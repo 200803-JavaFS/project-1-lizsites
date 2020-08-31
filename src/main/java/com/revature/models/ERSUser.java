@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ers_users")
+@Table(name="ers_users", schema="public")
 public class ERSUser implements Serializable {
 	/**
 	 * 
@@ -29,10 +29,10 @@ public class ERSUser implements Serializable {
 	private int userId;
 	
 	
-	@Column(name="ers_username", unique=true)
+	@Column(name="ers_username", nullable=false, unique=true)
 	private String username;
 	
-	@Column(name="ers_password")
+	@Column(name="ers_password", nullable=false)
 	private String password;
 	
 	@Column(name="user_first_name")
@@ -41,7 +41,7 @@ public class ERSUser implements Serializable {
 	@Column(name="user_last_name")
 	private String lastName;
 	
-	@Column(name="user_email", nullable=false)
+	@Column(name="user_email", nullable=false, unique=true)
 	private String email;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)

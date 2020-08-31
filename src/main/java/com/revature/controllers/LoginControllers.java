@@ -11,11 +11,11 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.ERSUser;
 import com.revature.models.LoginDTO;
-import com.revature.services.LoginService;
+import com.revature.services.Proj1LoginService;
 
 public class LoginControllers {
 	private static ObjectMapper om = new ObjectMapper();
-	private static LoginService ls = new LoginService();
+	private static Proj1LoginService ls = new Proj1LoginService();
 	public void loginAttempt(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		String username = req.getParameter("username");
@@ -28,7 +28,7 @@ public class LoginControllers {
 			sesh.setAttribute("user", l);
 			sesh.setAttribute("loggedin" , true);
 			res.setStatus(200);
-			req.getRequestDispatcher("reimbursements").forward(req,res);
+			
 		} else {
 			/*
 			 * Forbidden

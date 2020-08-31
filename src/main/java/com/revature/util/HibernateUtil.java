@@ -27,5 +27,8 @@ public class HibernateUtil {
 			sess.close();
 			sess = null;
 		}
+		
+		
+		
 	}
 

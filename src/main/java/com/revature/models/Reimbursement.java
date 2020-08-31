@@ -1,7 +1,9 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Calendar;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ers_reimbursement")
+@Table(name="ers_reimbursement", schema = "public" ) 
 public class Reimbursement implements Serializable {
 	
 	
@@ -29,7 +31,7 @@ public class Reimbursement implements Serializable {
 	@Column(name="reimb_amount", columnDefinition = "NUMERIC(12,2)")
 	private double amount;
 	
-	@Column(name="reimb_submitted")
+	@Column(name="reimb_submitted", nullable=false)
 	private Timestamp timeSubmitted;
 	
 	@Column(name="reimb_resolved")
@@ -77,7 +79,7 @@ public class Reimbursement implements Serializable {
 			ReimbursementType reimbursementType) {
 		super();
 		this.amount = amount;
-		this.timeSubmitted = timeSubmitted;
+		this.timeSubmitted = new Timestamp(Calendar.getInstance().getTime().getTime());
 		this.timeResolved = timeResolved;
 		this.description = description;
 		this.ersAuthor = ersAuthor;
@@ -114,13 +116,20 @@ public class Reimbursement implements Serializable {
 	public void setTimeSubmitted(Timestamp timeSubmitted) {
 		this.timeSubmitted = timeSubmitted;
 	}
+	
+	public void setTimeSubmitted() {
+		this.timeSubmitted = new Timestamp(Calendar.getInstance().getTime().getTime());
+	}
 
 	public Timestamp getTimeResolved() {
 		return timeResolved;
 	}
-
+	
 	public void setTimeResolved(Timestamp timeResolved) {
 		this.timeResolved = timeResolved;
+	}
+	public void setTimeResolved() {
+		this.timeResolved = new Timestamp(Calendar.getInstance().getTime().getTime());
 	}
 
 	public String getDescription() {

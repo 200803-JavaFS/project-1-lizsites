@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.persistence.Query;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import com.revature.models.ERSUser;
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
 import com.revature.models.ReimbursementType;
@@ -20,23 +23,28 @@ import com.revature.util.HibernateUtil;
 
 public class ReimbursementsDAOImp implements ReimbursementsDAO{
 
-	public List<Reimbursement> getReimbursementsByUserName(int id) {
+	public List<Reimbursement> getReimbursementsByAuthor(ERSUser u) {
 		Session sess = HibernateUtil.getSession();
-		return sess.createQuery("FROM Reimbursement",Reimbursement.class).list();
+		Query query = sess.createQuery("FROM Reimbursement where ersAuthor=:ersAuthor",Reimbursement.class);
+		query.setParameter("ersAuthor", u);
+		return query.getResultList();
 		
 	}
 
 	@Override
 	public List<Reimbursement> getReimbursementsByStatus(ReimbursementStatus status) {
 		Session sess = HibernateUtil.getSession();
-		return sess.createQuery("FROM Reimbursement where reimbursementStatus=" + status, Reimbursement.class).list();
-		
+		Query query = sess.createQuery("FROM Reimbursement where reimbursementStatus=:status", Reimbursement.class);
+		query.setParameter(1, status);
+		return query.getResultList();
 	}
 
 	@Override
 	public List<Reimbursement> getReimbursementsByType(ReimbursementType type) {
 		Session sess = HibernateUtil.getSession();
-		return sess.createQuery("FROM Reimbursement where reimbursementType=" + type, Reimbursement.class).list();
+		Query query = sess.createQuery("FROM Reimbursement where reimbursementType=;type", Reimbursement.class);
+		query.setParameter(1, type);
+		return query.getResultList();
 	}
 
 	@Override

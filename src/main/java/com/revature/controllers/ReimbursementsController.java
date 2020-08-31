@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dao.ReimbursementsDAO;
 import com.revature.dao.ReimbursementsDAOImp;
 import com.revature.dao.UserDAO;
@@ -24,7 +25,17 @@ public class ReimbursementsController {
 		UserDAO userDAO = new UserDAOImp();
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
 		ERSUser u = userDAO.getUserByUsername(((LoginDTO)req.getAttribute("l")).username);
-		List<Reimbursement> reimbs = reimbDAO.getReimbursementsByUserName(u.getUserId());
+		List<Reimbursement> reimbs = reimbDAO.getReimbursementsByAuthor(u);
+		
+		if (reimbs!= null) {
+		res.setStatus(200);
+		ObjectMapper om = new ObjectMapper();
+		String json = om.writeValueAsString(reimbs);
+		res.getWriter().println(json);
+		}
+	}
+	
+	public void getReimbursement(HttpServletResponse res, int id) {
 		
 	}
 }

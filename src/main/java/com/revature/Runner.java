@@ -18,14 +18,12 @@ public class Runner {
 		UserDAO userDAO = new UserDAOImp();
 		
 		List<ERSUser> u = userDAO.getAllUsers();
-		
+		System.out.println(u.get(0));
 		UserRoles role = u.get(0).getUserrole();
 		System.out.println(role);
 		
-		List<Reimbursement> reimbs = reimbDAO.getReimbursementsByUserName(1);
-		
-		ReimbursementStatus status = reimbs.get(0).getReimbursementStatus();
-		System.out.println(status);
+	
+		System.out.println(reimbDAO.getReimbursementsByAuthor(u.get(0)));
 		
 	}
 }

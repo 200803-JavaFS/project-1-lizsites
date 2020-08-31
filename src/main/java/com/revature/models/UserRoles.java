@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ers_user_roles")
+@Table(name="ers_user_roles", schema="public")
 public class UserRoles implements Serializable {
 	/**
 	 * 
