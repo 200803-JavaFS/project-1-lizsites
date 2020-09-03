@@ -10,5 +10,6 @@ public interface ReimbursementStatusDAO {
 	public boolean addStatus(ReimbursementStatus status);
 	public boolean updateStatus(ReimbursementStatus status);
 	public boolean removeStatus(int statusId);
+	public ReimbursementStatus getStatusByStatusName(String name);
 	
 }

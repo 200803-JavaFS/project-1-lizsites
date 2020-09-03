@@ -36,11 +36,10 @@ public class MasterServlet extends HttpServlet{
 		case "reimbursements":
 			System.out.println("I am in reimbursements case");
 //			if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
-				if (layeredUri.length == 2) {
+				if (req.getMethod().equals("POST")) {
 					
-					int id = Integer.parseInt(layeredUri[1]);
-					rc.getReimbursement(res, id);
-				} else if (layeredUri.length == 1) {
+					rc.addReimbursement(req,res);
+				} else if (req.getMethod().equals("GET")) {
 					rc.seeReimbursements(req, res);
 				}
 		//	}

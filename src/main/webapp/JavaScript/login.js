@@ -67,7 +67,7 @@ async function fetchFunc() {
         button2.onclick = AddFunc;
         document.getElementById("reimbForm").appendChild(button2);
     } else {
-        document.getElementById("login-row").innerText = "Login failed!";
+        document.getElementById("loginRow").innerText = "Login failed!";
     }
 }
 
@@ -119,6 +119,26 @@ async function findAll(){
 }
         
 
-function addFunc(){
-    
+async function addFunc(){
+
+    let amount = document.getElementById("reimbAmount").value;
+    let description = document.getElementById("reimbDescription").value;
+    let type = document.getElementById("reimbType").value;
+
+    let reimb = {
+        "amount" : amount,
+        "reimbDescription" : description,
+        "reimbType" : type
+    }
+
+
+    let resp = await fetch(url + "reimbursements", {
+        method: 'POST',
+        body: JSON.stringify(reimb),
+        credentials: "include"
+    })
+
+    if (resp.status===200){
+        
+    }
 }

@@ -19,6 +19,8 @@ $$ language sql;
 insert into ers_user_roles (user_role) values ('admin');
 insert into ers_reimbursement_type (reimb_type) values ('FOOD');
 insert into ers_reimbursement_status (reimb_status) values ('DENIED');
+insert into ers_reimbursement_status (reimb_status) values ('APPROVED');
+insert into ers_reimbursement_status (reimb_status) values ('PENDING');
 insert into ers_users (ERS_USERNAME, ERS_PASSWORD, USER_FIRST_NAME, USER_LAST_NAME, USER_EMAIL, USER_ROLE_ID) values ('melia23', 'password', 'melia', 'miller', 'doggo@yahoo.com', 1);
 insert into ers_reimbursement (REIMB_AMOUNT, REIMB_SUBMITTED, REIMB_DESCRIPTION, REIMB_AUTHOR, REIMB_STATUS_ID, REIMB_TYPE_ID) values (38, getTime(), 'Wasted my time at India Palace',1,1,1);
 

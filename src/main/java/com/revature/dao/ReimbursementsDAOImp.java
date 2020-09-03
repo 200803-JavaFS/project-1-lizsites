@@ -22,7 +22,17 @@ import com.revature.util.ConnectionUtil;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementsDAOImp implements ReimbursementsDAO{
-
+	
+	public Reimbursement getReimbursement(int id) {
+		Session sess = HibernateUtil.getSession();
+		try {
+			return sess.get(Reimbursement.class, id);
+		}catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<Reimbursement> getReimbursementsByAuthor(ERSUser u) {
 		System.out.println("In getReimbursementsByAuthor()");
 		Session sess = HibernateUtil.getSession();

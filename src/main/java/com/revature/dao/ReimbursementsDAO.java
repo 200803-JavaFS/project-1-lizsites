@@ -13,6 +13,7 @@ public interface ReimbursementsDAO {
 	public List<Reimbursement> getReimbursementsByStatus(ReimbursementStatus status);
 	public List<Reimbursement> getReimbursementsByType(ReimbursementType type);
 	
+	public Reimbursement getReimbursement(int id);
 	
 	
 	public boolean addReimbursement(Reimbursement reimbursement);

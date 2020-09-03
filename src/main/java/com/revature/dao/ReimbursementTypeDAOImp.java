@@ -2,6 +2,8 @@ package com.revature.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -9,6 +11,20 @@ import com.revature.models.ReimbursementType;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementTypeDAOImp implements ReimbursementTypeDAO {
+	
+	@Override
+	public ReimbursementType getTypeByTypeName(String name) {
+		Session sess = HibernateUtil.getSession();
+		Query query = sess.createQuery("FROM ReimbursementType where type=:typeName",ReimbursementType.class);
+		query.setParameter("typeName", name);
+		List<ReimbursementType> r = query.getResultList();
+		if (r.size()==1) {
+			return r.get(0);
+		} else {
+			return null;
+		}
+		
+	}
 
 	@Override
 	public List<ReimbursementType> getAllTypes() {
