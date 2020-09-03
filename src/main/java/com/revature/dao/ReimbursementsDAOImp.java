@@ -24,9 +24,10 @@ import com.revature.util.HibernateUtil;
 public class ReimbursementsDAOImp implements ReimbursementsDAO{
 
 	public List<Reimbursement> getReimbursementsByAuthor(ERSUser u) {
+		System.out.println("In getReimbursementsByAuthor()");
 		Session sess = HibernateUtil.getSession();
-		Query query = sess.createQuery("FROM Reimbursement where ersAuthor=:ersAuthor",Reimbursement.class);
-		query.setParameter("ersAuthor", u);
+		Query query = sess.createQuery("FROM Reimbursement where ersAuthor=:author",Reimbursement.class);
+		query.setParameter("author", u);
 		return query.getResultList();
 		
 	}

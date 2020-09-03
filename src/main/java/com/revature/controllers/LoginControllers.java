@@ -18,16 +18,30 @@ public class LoginControllers {
 	private static Proj1LoginService ls = new Proj1LoginService();
 	public void loginAttempt(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
-		LoginDTO l = new LoginDTO();
-		l.username = username;
-		l.password = password;
+		BufferedReader reader = req.getReader();
+
+		StringBuilder sb = new StringBuilder();
+
+		String line = reader.readLine();
+
+		while (line != null) {
+			sb.append(line);
+			line = reader.readLine();
+		}
+
+		String body = new String(sb);
+		System.out.println("login controllers loginDTO :" + body);
+		LoginDTO l = om.readValue(body, LoginDTO.class);
+
 		if (ls.login(l)) {
+			
 			HttpSession sesh = req.getSession();
 			sesh.setAttribute("user", l);
 			sesh.setAttribute("loggedin" , true);
+			res.getWriter().println("logged in!!!!");
+			
 			res.setStatus(200);
+			
 			
 		} else {
 			/*

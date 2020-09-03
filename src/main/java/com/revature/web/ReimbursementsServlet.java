@@ -16,7 +16,7 @@ public class ReimbursementsServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		rc.seeReimbursements(req, res);
+		
 	}
 	
 	@Override

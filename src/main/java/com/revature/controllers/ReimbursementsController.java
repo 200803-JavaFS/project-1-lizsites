@@ -20,19 +20,20 @@ import com.revature.models.Reimbursement;
 
 public class ReimbursementsController {
 	public void seeReimbursements(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		res.setContentType("text/html");
-		req.getRequestDispatcher("reimbursements.html").forward(req, res);
+		System.out.println("in seeReimbursements");
 		UserDAO userDAO = new UserDAOImp();
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
-		ERSUser u = userDAO.getUserByUsername(((LoginDTO)req.getAttribute("l")).username);
+		HttpSession sess = req.getSession(false);
+		System.out.println((LoginDTO)sess.getAttribute("user"));
+		ERSUser u = userDAO.getUserByUsername(((LoginDTO)sess.getAttribute("user")).username);
 		List<Reimbursement> reimbs = reimbDAO.getReimbursementsByAuthor(u);
+			res.setContentType("application/json");
+			ObjectMapper om = new ObjectMapper();
+			String reimbursements = om.writeValueAsString(reimbs);
+	
+			res.getWriter().print(reimbursements);
+			System.out.println(res.getStatus());
 		
-		if (reimbs!= null) {
-		res.setStatus(200);
-		ObjectMapper om = new ObjectMapper();
-		String json = om.writeValueAsString(reimbs);
-		res.getWriter().println(json);
-		}
 	}
 	
 	public void getReimbursement(HttpServletResponse res, int id) {

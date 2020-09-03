@@ -23,7 +23,11 @@ public class Runner {
 		System.out.println(role);
 		
 	
-		System.out.println(reimbDAO.getReimbursementsByAuthor(u.get(0)));
+		System.out.println(userDAO.getUserByUsername("melia23"));
+		List<Reimbursement> reimb = reimbDAO.getReimbursementsByAuthor(u.get(0));
+		for (Reimbursement r : reimb) {
+			System.out.println(r);
+		}
 		
 	}
 }

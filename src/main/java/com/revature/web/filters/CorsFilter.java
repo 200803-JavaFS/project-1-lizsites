@@ -24,7 +24,8 @@ public class CorsFilter implements Filter {
 	 * before they even reach a Servlet
 	 */
 	
-	
+	@Override
+	   public void init(FilterConfig filterconfig) throws ServletException {}
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -57,5 +58,8 @@ public class CorsFilter implements Filter {
 		chain.doFilter(request, response);
 		// Continue the filter chain
 	}
+	
+	@Override
+	   public void destroy() {}
 
 }

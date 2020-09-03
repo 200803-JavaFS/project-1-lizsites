@@ -21,8 +21,8 @@ public class UserDAOImp implements UserDAO {
 	public ERSUser getUserByUsername(String username) {
 	
 		Session sess = HibernateUtil.getSession();
-		Query query  =sess.createQuery("FROM ERSUser where username =:username ", ERSUser.class);
-		query.setParameter(1, username);
+		Query query  =sess.createQuery("FROM ERSUser where username =:name ", ERSUser.class);
+		query.setParameter("name", username);
 		List<ERSUser> u = query.getResultList();
 		if (u.size()==1) {
 			return u.get(0);

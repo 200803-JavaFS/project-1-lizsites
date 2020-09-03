@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="ers_users", schema="public")
 public class ERSUser implements Serializable {
@@ -236,7 +240,7 @@ public class ERSUser implements Serializable {
 	@Override
 	public String toString() {
 		return "ERSUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email + ", userrole=" + userrole + "]";
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", userrole=" + userrole.getRoleName() + "]";
 	}
 	
 	
