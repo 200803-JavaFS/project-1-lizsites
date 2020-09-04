@@ -32,19 +32,19 @@ public class UserRoles implements Serializable {
 	@Column(name="user_role")
 	private String roleName;
 	
-	@OneToMany(mappedBy="userrole")
-	private List<ERSUser> users;
+	
+//	private List<ERSUser> users;
 	
 	
 	public UserRoles() {
 		super();
 	}
 
-	public UserRoles(int userRoleId, String roleName, List<ERSUser> users) {
+	public UserRoles(int userRoleId, String roleName) {
 		super();
 		this.userRoleId = userRoleId;
 		this.roleName = roleName;
-		this.users = users;
+		//this.users = users;
 	}
 
 	public int getUserRoleId() {
@@ -63,13 +63,13 @@ public class UserRoles implements Serializable {
 		this.roleName = roleName;
 	}
 
-	public List<ERSUser> getUsers() {
-		return users;
-	}
+//	public List<ERSUser> getUsers() {
+//		return users;
+//	}
 
-	public void setUsers(List<ERSUser> users) {
-		this.users = users;
-	}
+//	public void setUsers(List<ERSUser> users) {
+//		this.users = users;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -81,7 +81,7 @@ public class UserRoles implements Serializable {
 		int result = 1;
 		result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
 		result = prime * result + userRoleId;
-		result = prime * result + ((users == null) ? 0 : users.hashCode());
+		//result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
 
@@ -101,11 +101,11 @@ public class UserRoles implements Serializable {
 			return false;
 		if (userRoleId != other.userRoleId)
 			return false;
-		if (users == null) {
-			if (other.users != null)
-				return false;
-		} else if (!users.equals(other.users))
-			return false;
+//		if (users == null) {
+//			if (other.users != null)
+//				return false;
+//		} else if (!users.equals(other.users))
+//			return false;
 		return true;
 	}
 

@@ -32,14 +32,14 @@ public class ReimbursementStatus implements Serializable {
 	@Column(name="reimb_status", nullable=false)
 	private String status;
 	
-	@OneToMany(mappedBy="reimbursementStatus")
-	List<Reimbursement> reimbursements;
+	
+	//List<Reimbursement> reimbursements;
 
-	public ReimbursementStatus(int statusId, String status, List<Reimbursement> reimbursements) {
+	public ReimbursementStatus(int statusId, String status) {
 		super();
 		this.statusId = statusId;
 		this.status = status;
-		this.reimbursements = reimbursements;
+		//this.reimbursements = reimbursements;
 	}
 
 	public ReimbursementStatus() {
@@ -62,13 +62,13 @@ public class ReimbursementStatus implements Serializable {
 		this.status = status;
 	}
 
-	public List<Reimbursement> getReimbursements() {
-		return reimbursements;
-	}
-
-	public void setReimbursements(List<Reimbursement> reimbursements) {
-		this.reimbursements = reimbursements;
-	}
+//	public List<Reimbursement> getReimbursements() {
+//		return reimbursements;
+//	}
+//
+//	public void setReimbursements(List<Reimbursement> reimbursements) {
+//		this.reimbursements = reimbursements;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -78,7 +78,7 @@ public class ReimbursementStatus implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
+//		result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + statusId;
 		return result;
@@ -93,11 +93,11 @@ public class ReimbursementStatus implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementStatus other = (ReimbursementStatus) obj;
-		if (reimbursements == null) {
-			if (other.reimbursements != null)
-				return false;
-		} else if (!reimbursements.equals(other.reimbursements))
-			return false;
+//		if (reimbursements == null) {
+//			if (other.reimbursements != null)
+//				return false;
+//		} else if (!reimbursements.equals(other.reimbursements))
+//			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;

@@ -52,7 +52,7 @@ public class ReimbursementStatusDAOImp implements ReimbursementStatusDAO {
 	@Override
 	public ReimbursementStatus getStatusByStatusName(String name) {
 		Session sess = HibernateUtil.getSession();
-		Query query = sess.createQuery("FROM ReimbursementStatus where type=:statusName",ReimbursementStatus.class);
+		Query query = sess.createQuery("FROM ReimbursementStatus where status=:statusName",ReimbursementStatus.class);
 		query.setParameter("statusName", name);
 		List<ReimbursementStatus> r = query.getResultList();
 		if (r.size()==1) {

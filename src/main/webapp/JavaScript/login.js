@@ -64,7 +64,7 @@ async function fetchFunc() {
         button2.className = "btn btn-success";
         button2.id = "addBtn";
         button2.innerText = "Add a Reimbursement";
-        button2.onclick = AddFunc;
+        button2.onclick = addFunc;
         document.getElementById("reimbForm").appendChild(button2);
     } else {
         document.getElementById("loginRow").innerText = "Login failed!";
@@ -82,8 +82,9 @@ async function findAll(){
     
        
         if (resp.status==200){
-            console.log(resp);
-            let reimbursements = resp.json();
+            let reimbursements = await resp.json();
+            console.log(reimbursements);
+            
             for (let reimbursement of reimbursements) {
                 console.log(reimbursement);
                 let row = document.createElement("tr");
@@ -97,22 +98,31 @@ async function findAll(){
                 cell3.innerHTML = reimbursement.timeSubmitted;
                 row.appendChild(cell3);
                 let cell4 = document.createElement("td");
+                if (reimbursement.timeResolved !== null){
                 cell4.innerHTML = reimbursement.timeResolved;
+                } else {
+                cell4.innerHTML = "N/A";
+                }
                 row.appendChild(cell4);
                 let cell5 = document.createElement("td");
                 cell5.innerHTML = reimbursement.description;
                 row.appendChild(cell5);
                 let cell6 = document.createElement("td");
-                cell6.innerHTML = reimbursement.ersAuthor.username;
+                cell6.innerHTML = reimbursement.ersAuthor.firstName;
                 row.appendChild(cell6);
                 let cell7 = document.createElement("td");
-                cell7.innerHTML = reimbursement.ersResolver.username;
+                if (reimbursement.ersResolver !== null){
+                cell7.innerHTML = reimbursement.ersResolver.firstName;
+                } else {
+                cell7.innerHTML = "N/A"
+                }
                 row.appendChild(cell7);
                 let cell8 = document.createElement("td");
                 cell8.innerHTML = reimbursement.reimbursementStatus.status;
                 row.appendChild(cell8);
                 let cell9 = document.createElement("td");
                 cell9.innerHtml = reimbursement.reimbursementType.type;
+                row.appendChild(cell9);
                 document.getElementById("reimbursement-table-body").appendChild(row);
         }
     }

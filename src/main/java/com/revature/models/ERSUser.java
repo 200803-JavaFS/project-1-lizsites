@@ -52,15 +52,15 @@ public class ERSUser implements Serializable {
 	@JoinColumn(name="user_role_id", nullable=false)
 	private UserRoles userrole;
 	
-	@OneToMany(mappedBy="ersAuthor", fetch=FetchType.LAZY)
-	private List<Reimbursement> submittedReimbursements;
 	
-	@OneToMany(mappedBy="ersResolver", fetch=FetchType.LAZY)
-	private List<Reimbursement> resolvedReimbursements;
+//	private List<Reimbursement> submittedReimbursements;
+//	
+//	
+//	private List<Reimbursement> resolvedReimbursements;
 	
 	
 	public ERSUser(int userId, String username, String password, String firstName, String lastName, String email,
-			UserRoles userrole, List<Reimbursement> submittedReimbursements, List<Reimbursement> resolvedReimbursements) {
+			UserRoles userrole) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -69,12 +69,11 @@ public class ERSUser implements Serializable {
 		this.lastName = lastName;
 		this.email = email;
 		this.userrole = userrole;
-		this.submittedReimbursements = submittedReimbursements;
-		this.resolvedReimbursements = resolvedReimbursements;
+		
 	}
 
 	public ERSUser(String username, String password, String firstName, String lastName, String email,
-			UserRoles userrole, List<Reimbursement> submittedReimbursements, List<Reimbursement> resolvedReimbursements) {
+			UserRoles userrole) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -82,8 +81,8 @@ public class ERSUser implements Serializable {
 		this.lastName = lastName;
 		this.email = email;
 		this.userrole = userrole;
-		this.submittedReimbursements = submittedReimbursements;
-		this.resolvedReimbursements = resolvedReimbursements;
+//		this.submittedReimbursements = submittedReimbursements;
+//		this.resolvedReimbursements = resolvedReimbursements;
 	}
 	
 
@@ -147,21 +146,21 @@ public class ERSUser implements Serializable {
 		this.userrole = userrole;
 	}
 
-	public List<Reimbursement> getSubmittedReimbursements() {
-		return submittedReimbursements;
-	}
-
-	public void setSubmittedReimbursements(List<Reimbursement> submittedReimbursements) {
-		this.submittedReimbursements = submittedReimbursements;
-	}
-
-	public List<Reimbursement> getResolvedReimbursements() {
-		return resolvedReimbursements;
-	}
-
-	public void ListResolvedReimbursements(List<Reimbursement> resolvedReimbursements) {
-		this.resolvedReimbursements = resolvedReimbursements;
-	}
+//	public List<Reimbursement> getSubmittedReimbursements() {
+//		return submittedReimbursements;
+//	}
+//
+//	public void setSubmittedReimbursements(List<Reimbursement> submittedReimbursements) {
+//		this.submittedReimbursements = submittedReimbursements;
+//	}
+//
+//	public List<Reimbursement> getResolvedReimbursements() {
+//		return resolvedReimbursements;
+//	}
+//
+//	public void ListResolvedReimbursements(List<Reimbursement> resolvedReimbursements) {
+//		this.resolvedReimbursements = resolvedReimbursements;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -175,8 +174,8 @@ public class ERSUser implements Serializable {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((resolvedReimbursements == null) ? 0 : resolvedReimbursements.hashCode());
-		result = prime * result + ((submittedReimbursements == null) ? 0 : submittedReimbursements.hashCode());
+//		result = prime * result + ((resolvedReimbursements == null) ? 0 : resolvedReimbursements.hashCode());
+//		result = prime * result + ((submittedReimbursements == null) ? 0 : submittedReimbursements.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((userrole == null) ? 0 : userrole.hashCode());
@@ -212,16 +211,16 @@ public class ERSUser implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (resolvedReimbursements == null) {
-			if (other.resolvedReimbursements != null)
-				return false;
-		} else if (!resolvedReimbursements.equals(other.resolvedReimbursements))
-			return false;
-		if (submittedReimbursements == null) {
-			if (other.submittedReimbursements != null)
-				return false;
-		} else if (!submittedReimbursements.equals(other.submittedReimbursements))
-			return false;
+//		if (resolvedReimbursements == null) {
+//			if (other.resolvedReimbursements != null)
+//				return false;
+//		} else if (!resolvedReimbursements.equals(other.resolvedReimbursements))
+//			return false;
+//		if (submittedReimbursements == null) {
+//			if (other.submittedReimbursements != null)
+//				return false;
+//		} else if (!submittedReimbursements.equals(other.submittedReimbursements))
+//			return false;
 		if (userId != other.userId)
 			return false;
 		if (username == null) {

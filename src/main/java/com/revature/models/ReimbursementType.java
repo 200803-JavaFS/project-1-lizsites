@@ -31,14 +31,14 @@ public class ReimbursementType implements Serializable {
 	@Column(name="reimb_type")
 	private String type;
 	
-	@OneToMany(mappedBy="reimbursementType")
-	private List<Reimbursement> reimbursements;
+	
+	//private List<Reimbursement> reimbursements;
 
-	public ReimbursementType(int typeId, String type, List<Reimbursement> reimbursements) {
+	public ReimbursementType(int typeId, String type) {
 		super();
 		this.typeId = typeId;
 		this.type = type;
-		this.reimbursements = reimbursements;
+		//this.reimbursements = reimbursements;
 	}
 
 	public ReimbursementType() {
@@ -61,13 +61,13 @@ public class ReimbursementType implements Serializable {
 		this.type = type;
 	}
 
-	public List<Reimbursement> getReimbursements() {
-		return reimbursements;
-	}
-
-	public void setReimbursements(List<Reimbursement> reimbursements) {
-		this.reimbursements = reimbursements;
-	}
+//	public List<Reimbursement> getReimbursements() {
+//		return reimbursements;
+//	}
+//
+//	public void setReimbursements(List<Reimbursement> reimbursements) {
+//		this.reimbursements = reimbursements;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -77,7 +77,7 @@ public class ReimbursementType implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
+		//result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + typeId;
 		return result;
@@ -92,11 +92,11 @@ public class ReimbursementType implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementType other = (ReimbursementType) obj;
-		if (reimbursements == null) {
-			if (other.reimbursements != null)
-				return false;
-		} else if (!reimbursements.equals(other.reimbursements))
-			return false;
+//		if (reimbursements == null) {
+//			if (other.reimbursements != null)
+//				return false;
+//		} else if (!reimbursements.equals(other.reimbursements))
+//			return false;
 		if (type == null) {
 			if (other.type != null)
 				return false;

@@ -2,6 +2,6 @@ package com.revature.models;
 
 public class ReimbDTO {
 	public double amount;
-	public String description;
-	public String type;
+	public String reimbDescription;
+	public String reimbType;
 }

@@ -34,11 +34,14 @@ public class ReimbursementsController {
 		System.out.println((LoginDTO)sess.getAttribute("user"));
 		ERSUser u = userDAO.getUserByUsername(((LoginDTO)sess.getAttribute("user")).username);
 		List<Reimbursement> reimbs = reimbDAO.getReimbursementsByAuthor(u);
-			res.setContentType("application/json");
-			ObjectMapper om = new ObjectMapper();
-			String reimbursements = om.writeValueAsString(reimbs);
-	
-			res.getWriter().print(reimbursements);
+		ObjectMapper om = new ObjectMapper();
+		
+		res.getWriter().println(om.writeValueAsString(reimbs));
+		
+		res.setStatus(200);
+			
+			
+			
 			System.out.println(res.getStatus());
 		
 	}
@@ -63,15 +66,16 @@ public class ReimbursementsController {
 
 		String body = new String(sb);
 		ObjectMapper om = new ObjectMapper();
+		System.out.println(body);
 		ReimbDTO reimb = om.readValue(body, ReimbDTO.class);
 		Reimbursement r = new Reimbursement();
 		r.setAmount(reimb.amount);
-		r.setDescription(reimb.description);
+		r.setDescription(reimb.reimbDescription);
 		r.setTimeSubmitted();
 		r.setTimeResolved(null);
 		r.setErsAuthor(u);
 		r.setErsResolver(null);
-		r.setReimbursementType(typeDAO.getTypeByTypeName(reimb.type));
+		r.setReimbursementType(typeDAO.getTypeByTypeName(reimb.reimbType));
 		r.setReimbursementStatus(statusDAO.getStatusByStatusName("PENDING"));
 		ReimbursementService rs = new ReimbursementService();
 		rs.addReimbursement(r);
