@@ -13,10 +13,52 @@
 				username : <input type="text" class="col-sm-4 form-control" id="username" placeholder="username"/>
 				password : <input type="password" class="col-sm-4 form-control" id="password" placeholder="password"/>
 				<button id="loginBtn" class="btn btn-success">Login</button>
-
+			
 	</div>	
 
-	<div class="row" id="reimbursementRow">
+	<div id ="add-reimbursement-body">
+	<div id ="reimbForm" class="row" style="visibility: hidden;">
+		<div class="col-4-sm">
+			<label class="label" for="reimbAmount">Amount:</label>
+			<input type="text" class="form-control" id="reimbAmount"/>
+		</div>
+		<div class="col-4-sm">
+			<label class="label" for="reimbDescription">Description:</label>
+			<input type="text" class="form-control" id="reimbDescription"/>
+		</div>
+		<div class="col-4-sm">
+			<label class="label" for="reimbType">Type:</label>
+			<input type="text" class="form-control" id="reimbType"/>
+		</div>
+	</div>
+</div>
+<div>
+	<table id="updateTable" style="visibility: hidden;">
+		<thead id="update-table-head">
+		<tr>
+		<th>Reimbursement Id</th>
+		<th>Reimbursement Amount</th>
+		<th>Time submitted</th>
+		<th>Time resolved</th>
+		<th>Description</th>
+		<th>Submitted By:</th>
+		<th>Resolved By:</th>
+		<th>Status</th>
+		<th>Type</th>
+		</tr>
+		</thead>
+		
+		<tbody id="update-table-body">
+		
+		</tbody>
+		<div id="updateBtn">
+
+		</div>
+
+	</table>
+</div>
+	<div class="row" id="reimbursementRow" style="visibility: hidden;">
+		
 		<table id="reimbursement-table" class="table">
 			<thead id="reimbursement-table-head">
 			<tr>
@@ -37,27 +79,7 @@
 			</tbody>
 	
 		</table>
-	
-		<div id ="add-reimbursement-body">
-			
-	
-		</div>
 
-		<div id ="reimbForm" class="row">
-			<div class="col-4-sm">
-				<label class="label" for="reimbAmount">Amount:</label>
-				<input type="text" class="form-control" id="reimbAmount"/>
-			</div>
-			<div class="col-4-sm">
-				<label class="label" for="reimbDescription">Description:</label>
-				<input type="text" class="form-control" id="reimbDescription"/>
-			</div>
-			<div class="col-4-sm">
-				<label class="label" for="reimbType">Type:</label>
-				<input type="text" class="form-control" id="reimbType"/>
-			</div>
-		</div>
-</table>
 	</div>
 </div>
 	<script src="JavaScript/login.js"></script>

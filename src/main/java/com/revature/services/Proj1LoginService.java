@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import javax.servlet.http.HttpSession;
+
 import com.revature.dao.UserDAO;
 import com.revature.dao.UserDAOImp;
 import com.revature.models.ERSUser;

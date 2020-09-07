@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.persistence.Query;
+import javax.transaction.Transaction;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -46,15 +47,15 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	public List<Reimbursement> getReimbursementsByStatus(ReimbursementStatus status) {
 		Session sess = HibernateUtil.getSession();
 		Query query = sess.createQuery("FROM Reimbursement where reimbursementStatus=:status", Reimbursement.class);
-		query.setParameter(1, status);
+		query.setParameter("status", status);
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Reimbursement> getReimbursementsByType(ReimbursementType type) {
 		Session sess = HibernateUtil.getSession();
-		Query query = sess.createQuery("FROM Reimbursement where reimbursementType=;type", Reimbursement.class);
-		query.setParameter(1, type);
+		Query query = sess.createQuery("FROM Reimbursement where reimbursementType=:type", Reimbursement.class);
+		query.setParameter("type", type);
 		return query.getResultList();
 	}
 
@@ -74,7 +75,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	public boolean updateReimbursement(Reimbursement reimbursement) {
 		Session sess = HibernateUtil.getSession();
 		try {
-		sess.merge(reimbursement);
+			sess.merge(reimbursement);
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -93,5 +94,11 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 			return false;
 		}
 		
+	}
+
+	@Override
+	public List<Reimbursement> getReimbursements() {
+		Session sess = HibernateUtil.getSession();
+		return sess.createQuery("FROM Reimbursement" , Reimbursement.class).list();
 	}
 }

@@ -166,6 +166,8 @@ public class ERSUser implements Serializable {
 		return serialVersionUID;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -174,8 +176,6 @@ public class ERSUser implements Serializable {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-//		result = prime * result + ((resolvedReimbursements == null) ? 0 : resolvedReimbursements.hashCode());
-//		result = prime * result + ((submittedReimbursements == null) ? 0 : submittedReimbursements.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((userrole == null) ? 0 : userrole.hashCode());
@@ -211,16 +211,6 @@ public class ERSUser implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-//		if (resolvedReimbursements == null) {
-//			if (other.resolvedReimbursements != null)
-//				return false;
-//		} else if (!resolvedReimbursements.equals(other.resolvedReimbursements))
-//			return false;
-//		if (submittedReimbursements == null) {
-//			if (other.submittedReimbursements != null)
-//				return false;
-//		} else if (!submittedReimbursements.equals(other.submittedReimbursements))
-//			return false;
 		if (userId != other.userId)
 			return false;
 		if (username == null) {

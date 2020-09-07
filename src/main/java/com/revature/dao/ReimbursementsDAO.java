@@ -9,6 +9,7 @@ import com.revature.models.ReimbursementStatus;
 import com.revature.models.ReimbursementType;
 
 public interface ReimbursementsDAO {
+	public List<Reimbursement> getReimbursements();
 	public List<Reimbursement> getReimbursementsByAuthor(ERSUser u);
 	public List<Reimbursement> getReimbursementsByStatus(ReimbursementStatus status);
 	public List<Reimbursement> getReimbursementsByType(ReimbursementType type);

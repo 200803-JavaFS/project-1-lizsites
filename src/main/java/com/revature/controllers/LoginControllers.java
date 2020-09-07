@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.UserDAO;
+import com.revature.dao.UserDAOImp;
 import com.revature.models.ERSUser;
 import com.revature.models.LoginDTO;
+import com.revature.models.UserRoles;
 import com.revature.services.Proj1LoginService;
 
 public class LoginControllers {
@@ -34,12 +37,15 @@ public class LoginControllers {
 		LoginDTO l = om.readValue(body, LoginDTO.class);
 
 		if (ls.login(l)) {
-			
+			UserDAO userDAO = new UserDAOImp();
+			ERSUser u = userDAO.getUserByUsername(l.username);
 			HttpSession sesh = req.getSession();
-			sesh.setAttribute("user", l);
+			UserRoles role = u.getUserrole();
+			sesh.setAttribute("user", u);
 			sesh.setAttribute("loggedin" , true);
-			res.getWriter().println("logged in!!!!");
-			
+			ObjectMapper om = new ObjectMapper();
+			String roleBody = om.writeValueAsString(role);
+			res.getWriter().println(roleBody);
 			res.setStatus(200);
 			
 			

@@ -12,7 +12,10 @@ import com.revature.models.ReimbursementType;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementStatusDAOImp implements ReimbursementStatusDAO {
-
+	
+	
+	
+	
 	@Override
 	public List<ReimbursementStatus> getAllStatuses() {
 		Session sess = HibernateUtil.getSession();
@@ -60,6 +63,18 @@ public class ReimbursementStatusDAOImp implements ReimbursementStatusDAO {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public ReimbursementStatus getStatus(int id) {
+		Session ses = HibernateUtil.getSession();
+		try {
+			return ses.get(ReimbursementStatus.class,id);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	

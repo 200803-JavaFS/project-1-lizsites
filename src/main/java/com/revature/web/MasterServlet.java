@@ -35,14 +35,23 @@ public class MasterServlet extends HttpServlet{
 		switch (layeredUri[0]) {
 		case "reimbursements":
 			System.out.println("I am in reimbursements case");
-//			if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
+			if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
 				if (req.getMethod().equals("POST")) {
-					
+					if (layeredUri.length==2) {
+						rc.updateReimbursement(req, res);
+					} else {
 					rc.addReimbursement(req,res);
+					}
 				} else if (req.getMethod().equals("GET")) {
+					if (layeredUri.length == 2) {
+						rc.seePendingReimbursements(req,res);
+					} else {
 					rc.seeReimbursements(req, res);
-				}
-		//	}
+					}
+				} else if (req.getMethod().equals("PUT")) {
+					rc.updateReimbursement(req, res);
+				} 
+			}
 			break;
 			
 		case "login" :
