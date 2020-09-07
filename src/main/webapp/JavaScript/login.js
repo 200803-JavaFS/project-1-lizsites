@@ -250,9 +250,9 @@ async function stageFunc(reimbursement){
     let cell8 = document.createElement("select");
     let option1 = document.createElement("option");
     let option2 = document.createElement("option");
-    option1.value = 1;
+    option1.value = 2;
     option1.innerHTML = "APPROVE";
-    option2.value = 2;
+    option2.value = 1;
     option2.innerHTML = "DECLINE";
     cell8.appendChild(option1);
     cell8.appendChild(option2);

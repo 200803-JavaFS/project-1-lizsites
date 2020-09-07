@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,17 +14,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement_status", schema="public")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="statusId")
 public class ReimbursementStatus implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="reimb_status_id")
@@ -32,15 +36,25 @@ public class ReimbursementStatus implements Serializable {
 	@Column(name="reimb_status", nullable=false)
 	private String status;
 	
+	@OneToMany(mappedBy="reimbursementStatus", fetch=FetchType.LAZY)
+	List<Reimbursement> reimbursements;
+
+	public ReimbursementStatus(int statusId, String status, List<Reimbursement> reimbursements) {
+		super();
+		this.statusId = statusId;
+		this.status = status;
+		this.reimbursements = reimbursements;
+	}
 	
-	//List<Reimbursement> reimbursements;
+	
 
 	public ReimbursementStatus(int statusId, String status) {
 		super();
 		this.statusId = statusId;
 		this.status = status;
-		//this.reimbursements = reimbursements;
 	}
+
+
 
 	public ReimbursementStatus() {
 		super();
@@ -62,23 +76,20 @@ public class ReimbursementStatus implements Serializable {
 		this.status = status;
 	}
 
-//	public List<Reimbursement> getReimbursements() {
-//		return reimbursements;
-//	}
-//
-//	public void setReimbursements(List<Reimbursement> reimbursements) {
-//		this.reimbursements = reimbursements;
-//	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<Reimbursement> getReimbursements() {
+		return reimbursements;
 	}
+	public void setReimbursements(List<Reimbursement> reimbursements) {
+		this.reimbursements = reimbursements;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-//		result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
+		result = prime * result + ((reimbursements == null) ? 0 : reimbursements.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + statusId;
 		return result;
@@ -93,11 +104,11 @@ public class ReimbursementStatus implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementStatus other = (ReimbursementStatus) obj;
-//		if (reimbursements == null) {
-//			if (other.reimbursements != null)
-//				return false;
-//		} else if (!reimbursements.equals(other.reimbursements))
-//			return false;
+		if (reimbursements == null) {
+			if (other.reimbursements != null)
+				return false;
+		} else if (!reimbursements.equals(other.reimbursements))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;

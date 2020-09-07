@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,15 +14,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement_type" ,schema="public")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="typeId")
 public class ReimbursementType implements Serializable {
 	
 	
+	
 	private static final long serialVersionUID = 1L;
+
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -31,15 +38,25 @@ public class ReimbursementType implements Serializable {
 	@Column(name="reimb_type")
 	private String type;
 	
+	@OneToMany(mappedBy="reimbursementType", fetch=FetchType.LAZY)
+	private List<Reimbursement> reimbursements;
+
+	public ReimbursementType(int typeId, String type, List<Reimbursement> reimbursements) {
+		super();
+		this.typeId = typeId;
+		this.type = type;
+		this.reimbursements = reimbursements;
+	}
 	
-	//private List<Reimbursement> reimbursements;
+	
 
 	public ReimbursementType(int typeId, String type) {
 		super();
 		this.typeId = typeId;
 		this.type = type;
-		//this.reimbursements = reimbursements;
 	}
+
+
 
 	public ReimbursementType() {
 		super();
@@ -61,18 +78,15 @@ public class ReimbursementType implements Serializable {
 		this.type = type;
 	}
 
-//	public List<Reimbursement> getReimbursements() {
-//		return reimbursements;
-//	}
-//
-//	public void setReimbursements(List<Reimbursement> reimbursements) {
-//		this.reimbursements = reimbursements;
-//	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<Reimbursement> getReimbursements() {
+		return reimbursements;
 	}
 
+	public void setReimbursements(List<Reimbursement> reimbursements) {
+		this.reimbursements = reimbursements;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,11 +106,11 @@ public class ReimbursementType implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementType other = (ReimbursementType) obj;
-//		if (reimbursements == null) {
-//			if (other.reimbursements != null)
-//				return false;
-//		} else if (!reimbursements.equals(other.reimbursements))
-//			return false;
+		if (reimbursements == null) {
+			if (other.reimbursements != null)
+				return false;
+		} else if (!reimbursements.equals(other.reimbursements))
+			return false;
 		if (type == null) {
 			if (other.type != null)
 				return false;

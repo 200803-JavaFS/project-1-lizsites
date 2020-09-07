@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,16 +14,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_user_roles", schema="public")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userRoleId")
 public class UserRoles implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,18 +38,25 @@ public class UserRoles implements Serializable {
 	private String roleName;
 	
 	
-//	private List<ERSUser> users;
+	@OneToMany(mappedBy="userrole", fetch=FetchType.LAZY)
+	private List<ERSUser> users;
 	
 	
-	public UserRoles() {
-		super();
-	}
-
 	public UserRoles(int userRoleId, String roleName) {
 		super();
 		this.userRoleId = userRoleId;
 		this.roleName = roleName;
-		//this.users = users;
+	}
+
+	public UserRoles() {
+		super();
+	}
+
+	public UserRoles(int userRoleId, String roleName,List<ERSUser> users) {
+		super();
+		this.userRoleId = userRoleId;
+		this.roleName = roleName;
+		this.users = users;
 	}
 
 	public int getUserRoleId() {
@@ -63,17 +75,15 @@ public class UserRoles implements Serializable {
 		this.roleName = roleName;
 	}
 
-//	public List<ERSUser> getUsers() {
-//		return users;
-//	}
-
-//	public void setUsers(List<ERSUser> users) {
-//		this.users = users;
-//	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<ERSUser> getUsers() {
+		return users;
 	}
+
+	public void setUsers(List<ERSUser> users) {
+		this.users = users;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
@@ -81,7 +91,7 @@ public class UserRoles implements Serializable {
 		int result = 1;
 		result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
 		result = prime * result + userRoleId;
-		//result = prime * result + ((users == null) ? 0 : users.hashCode());
+		result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
 
@@ -101,11 +111,11 @@ public class UserRoles implements Serializable {
 			return false;
 		if (userRoleId != other.userRoleId)
 			return false;
-//		if (users == null) {
-//			if (other.users != null)
-//				return false;
-//		} else if (!users.equals(other.users))
-//			return false;
+		if (users == null) {
+			if (other.users != null)
+				return false;
+		} else if (!users.equals(other.users))
+			return false;
 		return true;
 	}
 

@@ -75,7 +75,9 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	public boolean updateReimbursement(Reimbursement reimbursement) {
 		Session sess = HibernateUtil.getSession();
 		try {
+			org.hibernate.Transaction tx = sess.beginTransaction();
 			sess.merge(reimbursement);
+			tx.commit();
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

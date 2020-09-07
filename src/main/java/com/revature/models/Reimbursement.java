@@ -17,13 +17,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement", schema = "public" ) 
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="reimbursementId")
 public class Reimbursement implements Serializable {
-	
-	
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -44,12 +49,12 @@ public class Reimbursement implements Serializable {
 	@Column(name="reimb_description")
 	private String description;
 	
-	@ManyToOne(fetch=FetchType.EAGER , cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
 	@JoinColumn(name="reimb_author")
 	private ERSUser ersAuthor;
 	
 	
-	@ManyToOne(fetch=FetchType.EAGER , cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="reimb_resolver")
 	private ERSUser ersResolver;
 	
@@ -173,10 +178,6 @@ public class Reimbursement implements Serializable {
 
 	public void setReimbursementType(ReimbursementType reimbursementType) {
 		this.reimbursementType = reimbursementType;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override

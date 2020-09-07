@@ -111,15 +111,14 @@ public class ReimbursementsController {
 		System.out.println(body);
 		Reimbursement r =  om.readValue(body, Reimbursement.class);
 		ReimbursementStatus rStatus = statusDAO.getStatus(r.getReimbursementStatus().getStatusId());
-		Session sesh = HibernateUtil.getSession();
-		org.hibernate.Transaction tx = sesh.beginTransaction();
 		r.setTimeResolved();
 		r.setErsResolver(u);
 		r.setReimbursementStatus(rStatus);
 		ReimbursementService rs = new ReimbursementService();
+		System.out.println("updated reimbursement " +r );
 		rs.updateReimbursement(r);
-		tx.commit();
-		sesh.flush();
+		System.out.println(r);
+		res.setStatus(201);
 	
 	}
 
