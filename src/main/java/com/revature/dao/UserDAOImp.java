@@ -24,6 +24,7 @@ public class UserDAOImp implements UserDAO {
 		Query query  =sess.createQuery("FROM ERSUser where username =:name ", ERSUser.class);
 		query.setParameter("name", username);
 		List<ERSUser> u = query.getResultList();
+		userLogger.info("getting User with name " + username);
 		if (u.size()==1) {
 			return u.get(0);
 		} else {
@@ -41,7 +42,7 @@ public class UserDAOImp implements UserDAO {
 	public List<ERSUser> getAllUsers() {
 		Session sess = HibernateUtil.getSession();
 		List<ERSUser> userList =sess.createQuery("FROM ERSUser", ERSUser.class).list();
-		
+		userLogger.info("getting all users");
 		return userList;
 		
 	}
@@ -51,6 +52,7 @@ public class UserDAOImp implements UserDAO {
 		Session sess = HibernateUtil.getSession();
 		Query query = sess.createQuery("FROM ERSUser where email=:email", ERSUser.class);
 		query.setParameter(1, email);
+		userLogger.info("getting user with email " + email);
 		List<ERSUser> u = query.getResultList();
 		if (u.size() == 1) {
 			return u.get(0);
@@ -68,6 +70,7 @@ public class UserDAOImp implements UserDAO {
 		Session sess = HibernateUtil.getSession();
 		try {
 		sess.save(u);
+		userLogger.info("getting user " + u.getUsername() + " has been added");
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -80,6 +83,7 @@ public class UserDAOImp implements UserDAO {
 		Session sess = HibernateUtil.getSession();
 		try {
 		sess.merge(u);
+		userLogger.info("User " + u.getUsername() + " has been updated!");
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

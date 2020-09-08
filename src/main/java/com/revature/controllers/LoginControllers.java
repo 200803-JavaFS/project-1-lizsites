@@ -57,4 +57,12 @@ public class LoginControllers {
 			res.getWriter().println("Bad Login Credentials");
 		}
 	}
+	
+	public void logoutAttemp(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+		HttpSession sesh = req.getSession(false);
+		if (sesh != null) {
+			sesh.invalidate();
+			res.setStatus(200);
+		}
+	}
 }

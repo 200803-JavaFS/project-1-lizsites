@@ -8,18 +8,33 @@ import com.revature.dao.ReimbursementStatusDAO;
 import com.revature.dao.ReimbursementStatusDAOImp;
 import com.revature.dao.ReimbursementsDAO;
 import com.revature.dao.ReimbursementsDAOImp;
+import com.revature.models.ERSUser;
 import com.revature.models.LoginDTO;
 import com.revature.models.ReimbDTO;
 import com.revature.models.Reimbursement;
 
 public class ReimbursementService {
-	public void addReimbursement(Reimbursement r) {
+	
+	public List<Reimbursement> seeReimbursements(ERSUser u){
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
-		reimbDAO.addReimbursement(r);
+		List<Reimbursement> reimbs;
+		if (u.getUserrole().getRoleName().equals("admin")) {
+			reimbs = reimbDAO.getReimbursements();
+		} else {
+		reimbs = reimbDAO.getReimbursementsByAuthor(u);
+		}
+		return reimbs;
 	}
-	public void updateReimbursement(Reimbursement r) {
+	
+	public boolean addReimbursement(Reimbursement r) {
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
-		reimbDAO.updateReimbursement(r);
+		return reimbDAO.addReimbursement(r);
+	}
+	public boolean updateReimbursement(Reimbursement r) {
+		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
+		return reimbDAO.updateReimbursement(r);
+	
+		
 	}
 	public void seeReimbursementsForAuthor(LoginDTO user) {
 		

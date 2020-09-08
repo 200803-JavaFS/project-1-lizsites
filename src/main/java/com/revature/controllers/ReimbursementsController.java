@@ -34,18 +34,13 @@ import com.revature.util.HibernateUtil;
 
 public class ReimbursementsController {
 	public void seeReimbursements(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("in seeReimbursements");
+
 		UserDAO userDAO = new UserDAOImp();
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
 		HttpSession sess = req.getSession(false);
-		System.out.println((ERSUser)sess.getAttribute("user"));
 		ERSUser u = userDAO.getUserByUsername(((ERSUser)sess.getAttribute("user")).getUsername());
-		List<Reimbursement> reimbs;
-		if (u.getUserrole().getRoleName().equals("admin")) {
-			reimbs = reimbDAO.getReimbursements();
-		} else {
-		reimbs = reimbDAO.getReimbursementsByAuthor(u);
-		}
+		ReimbursementService rs = new ReimbursementService();
+		List<Reimbursement> reimbs = rs.seeReimbursements(u);
 		ObjectMapper om = new ObjectMapper();
 		
 		res.getWriter().println(om.writeValueAsString(reimbs));
@@ -55,10 +50,7 @@ public class ReimbursementsController {
 		
 	}
 	
-	public void getReimbursement(HttpServletResponse res, int id) {
-		
-	}
-
+	
 	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("adding reimbursement...");
 		ReimbursementTypeDAO typeDAO = new ReimbursementTypeDAOImp();

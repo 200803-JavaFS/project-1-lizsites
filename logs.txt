@@ -1,0 +1,132 @@
+2020-09-07 23:18:07 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:18:07 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:18:07 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:19:03 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:19:03 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:19:03 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:20:58 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:20:58 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:20:58 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:21:39 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:21:39 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:21:39 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:23:13 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:23:13 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:23:13 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 0
+2020-09-07 23:23:43 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:23:43 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 29
+2020-09-07 23:23:43 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 29
+2020-09-07 23:23:43 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 29
+2020-09-07 23:24:17 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:24:17 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 30
+2020-09-07 23:24:17 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 30
+2020-09-07 23:24:17 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 30
+2020-09-07 23:25:11 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:25:11 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 31
+2020-09-07 23:25:11 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 31
+2020-09-07 23:25:11 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 31
+2020-09-07 23:26:27 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:26:27 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 32
+2020-09-07 23:26:27 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 32
+2020-09-07 23:26:27 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:26:27 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 32
+2020-09-07 23:28:35 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:28:36 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 33
+2020-09-07 23:28:36 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 33
+2020-09-07 23:28:36 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:28:36 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 33
+2020-09-07 23:33:06 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:33:06 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 34
+2020-09-07 23:33:06 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 34
+2020-09-07 23:33:06 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:33:06 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 34
+2020-09-07 23:40:56 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:40:57 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=35, amount=400.0, timeSubmitted=2020-09-07 23:40:56.607, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:40:57 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:40:57 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:40:57 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 35
+2020-09-07 23:41:37 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:41:37 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=36, amount=400.0, timeSubmitted=2020-09-07 23:41:37.017, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:41:37 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:41:38 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:41:38 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 36
+2020-09-07 23:47:41 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:47:42 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:47:42 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=37, amount=400.0, timeSubmitted=2020-09-07 23:47:41.625, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:47:42 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:47:42 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:47:42 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 37
+2020-09-07 23:48:58 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:48:59 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:48:59 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=38, amount=400.0, timeSubmitted=2020-09-07 23:48:58.619, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:48:59 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:48:59 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:48:59 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 38
+2020-09-07 23:51:22 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:51:22 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:51:22 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=39, amount=400.0, timeSubmitted=2020-09-07 23:51:22.099, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:51:22 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:51:23 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:51:23 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 39
+2020-09-07 23:52:15 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:52:16 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:52:16 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=40, amount=400.0, timeSubmitted=2020-09-07 23:52:15.654, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:52:16 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:52:17 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:52:17 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 40
+2020-09-07 23:52:58 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:52:59 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:52:59 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=41, amount=400.0, timeSubmitted=2020-09-07 23:52:58.605, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:52:59 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:52:59 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:52:59 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 41
+2020-09-07 23:53:56 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:53:57 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:53:57 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=42, amount=400.0, timeSubmitted=2020-09-07 23:53:56.609, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:53:57 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:53:57 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:53:57 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 42
+2020-09-07 23:55:11 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:55:12 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:55:12 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=43, amount=400.0, timeSubmitted=2020-09-07 23:55:11.816, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:55:12 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:55:12 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:55:12 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 43
+2020-09-07 23:56:02 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:56:02 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:56:02 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=44, amount=400.0, timeSubmitted=2020-09-07 23:56:02.218, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:56:02 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:56:03 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:56:03 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 44
+2020-09-07 23:57:39 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:57:40 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:57:40 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=45, amount=400.0, timeSubmitted=2020-09-07 23:57:39.655, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:57:40 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:57:40 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:57:40 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 45
+2020-09-07 23:58:58 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-07 23:58:59 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-07 23:58:59 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=46, amount=400.0, timeSubmitted=2020-09-07 23:58:58.603, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-07 23:58:59 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-07 23:58:59 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-07 23:58:59 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 46
+2020-09-08 00:00:48 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 00:00:48 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-08 00:00:49 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=47, amount=400.0, timeSubmitted=2020-09-08 00:00:48.527, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-08 00:00:49 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-08 00:00:49 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 00:00:49 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 47
+2020-09-08 00:01:27 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 00:01:27 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-08 00:01:27 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 00:01:28 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=48, amount=400.0, timeSubmitted=2020-09-08 00:01:27.118, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-08 00:01:28 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-08 00:01:28 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 00:01:28 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 48
+2020-09-08 00:01:40 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 00:01:40 INFO  ReimbursementsDAOImp:110 - got all reimbursements
+2020-09-08 00:01:41 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 00:01:41 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=49, amount=400.0, timeSubmitted=2020-09-08 00:01:40.395, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-08 00:01:41 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-08 00:01:41 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 00:01:41 INFO  ReimbursementsDAOImp:97 - removed reimbursement with id : 49

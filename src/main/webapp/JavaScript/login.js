@@ -27,7 +27,7 @@ async function fetchFunc() {
         let button = document.createElement('button');
         button.className = "btn btn-warning";
         button.id = "findAllBtn";
-        button.innerText = "Find All Reimbursements";
+        button.innerText = "See Reimbursements";
         button.onclick = findAll;
         document.getElementById("reimbursementRow").appendChild(button);
         //add avenger button show
@@ -38,6 +38,13 @@ async function fetchFunc() {
         button2.innerText = "Add a Reimbursement";
         button2.onclick = addFunc;
         document.getElementById("reimbForm").appendChild(button2);
+
+        let button6 = document.createElement('button');
+        button6.className = "btn btn-warning";
+        button6.id = "logOutBtn";
+        button6.innerText = "Log Out";
+        button6.onclick = logOut;
+        document.getElementById("reimbForm").appendChild(button6);
 
         if (role.roleName === "admin"){
         let button3 = document.createElement("button");
@@ -324,5 +331,16 @@ async function updateFunc(){
     if (resp.status===201){
         findAll();
         document.getElementById("update-table-body").innerHTML = "";
+    }
+}
+
+async function logOut(){
+    let resp = await fetch(url + "logout/", {
+        method: 'GET',
+        credentials: "include"
+    })
+
+    if (resp.status === 200){
+        document.getElementById("loginRow").innerText = "YOU HAVE LOGGED OUT.";
     }
 }

@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import javax.persistence.Query;
 import javax.transaction.Transaction;
 
+import org.apache.logging.log4j.LogManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -23,7 +24,7 @@ import com.revature.util.ConnectionUtil;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementsDAOImp implements ReimbursementsDAO{
-	
+	private static final org.apache.logging.log4j.Logger reimbLog = LogManager.getLogger(ReimbursementsDAOImp.class);
 	public Reimbursement getReimbursement(int id) {
 		Session sess = HibernateUtil.getSession();
 		try {
@@ -39,6 +40,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 		Session sess = HibernateUtil.getSession();
 		Query query = sess.createQuery("FROM Reimbursement where ersAuthor=:author",Reimbursement.class);
 		query.setParameter("author", u);
+		reimbLog.info("got reimbursemenst for User u: " + u);
 		return query.getResultList();
 		
 	}
@@ -48,6 +50,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 		Session sess = HibernateUtil.getSession();
 		Query query = sess.createQuery("FROM Reimbursement where reimbursementStatus=:status", Reimbursement.class);
 		query.setParameter("status", status);
+		reimbLog.info("got reimbursemenst for Reimbursement Status: " + status);
 		return query.getResultList();
 	}
 
@@ -78,7 +81,8 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 			org.hibernate.Transaction tx = sess.beginTransaction();
 			sess.merge(reimbursement);
 			tx.commit();
-		return true;
+			reimbLog.info("Updated reimbursement: " + reimbursement);
+			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
@@ -90,6 +94,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 		Session sess = HibernateUtil.getSession();
 		try {
 		sess.createQuery("DELETE FROM Reimbursement where reimbursementId=" + reimbursementId);
+		reimbLog.info("removed reimbursement with id : " + reimbursementId);
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -102,6 +107,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	public List<Reimbursement> getReimbursements() {
 		Session sess = HibernateUtil.getSession();
 		List<Reimbursement> reimbs = sess.createQuery("FROM Reimbursement" , Reimbursement.class).list();
+		reimbLog.info("got all reimbursements");
 		return reimbs;
 	}
 }

@@ -58,7 +58,14 @@ public class MasterServlet extends HttpServlet{
 			LoginControllers lc = new LoginControllers();
 			lc.loginAttempt(req,res);
 			break;
+			
+		case "logout" :
+			LoginControllers lc2 = new LoginControllers();
+			lc2.logoutAttemp(req, res);
+			break;
 		}
+		
+		
 		
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
