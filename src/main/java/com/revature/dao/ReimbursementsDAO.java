@@ -19,6 +19,7 @@ public interface ReimbursementsDAO {
 	
 	public boolean addReimbursement(Reimbursement reimbursement);
 	public boolean updateReimbursement(Reimbursement reimbursement);
-	public boolean removeReimbursement(int reimbursementId);
+	public boolean removeReimbursement(int id);
+	public boolean cleanTest(Reimbursement r);
 	
 }

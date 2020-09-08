@@ -90,11 +90,24 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	}
 
 	@Override
-	public boolean removeReimbursement(int reimbursementId) {
+	public boolean removeReimbursement(int id) {
 		Session sess = HibernateUtil.getSession();
 		try {
-		sess.createQuery("DELETE FROM Reimbursement where reimbursementId=" + reimbursementId);
-		reimbLog.info("removed reimbursement with id : " + reimbursementId);
+		sess.createQuery("DELETE FROM Reimbursement where reimbursementId=" + id);
+		reimbLog.info("removed reimbursement with description : " + id);
+		return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	public boolean cleanTest(Reimbursement r) {
+		Session sess = HibernateUtil.getSession();
+		try {
+		sess.delete(r);
+		reimbLog.info("removed reimbursement with id : " + r.getReimbursementId());
 		return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

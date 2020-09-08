@@ -60,12 +60,12 @@ public class ERSUser implements Serializable {
 	private UserRoles userrole;
 	
 	
-	@OneToMany(mappedBy="ersAuthor", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="ersAuthor", fetch=FetchType.EAGER)
 	@JsonBackReference(value="ersAuthor")
 	private List<Reimbursement> submittedReimbursements;
 
 	
-	@OneToMany(mappedBy="ersResolver", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="ersResolver", fetch=FetchType.EAGER)
 	@JsonBackReference(value="ersResolver")
 	private List<Reimbursement> resolvedReimbursements;
 	

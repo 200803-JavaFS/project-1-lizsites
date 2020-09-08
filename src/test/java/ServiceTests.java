@@ -40,10 +40,9 @@ public class ServiceTests {
 	public static void init() {
 		u = userDAO.getUserByUsername("melia23");
 		System.out.println(u);
-		Reimbursement rd = new Reimbursement();
 		r = new Reimbursement(400, null, null, "JUnit test",
-			u, null, new ReimbursementStatus(3,"PENDING"),
-			new ReimbursementType(1,"FOOD"));
+			u, null, statusDAO.getStatus(3),
+			typeDAO.getTypeById(1));
 		System.out.println(r);
 		boolean result = reimb.addReimbursement(r);
 		assertTrue(result);
@@ -87,6 +86,7 @@ public class ServiceTests {
 	}
 	@AfterClass
 	public static void breakDownWholeTest() {
-		reimbursementDAO.removeReimbursement(r.getReimbursementId());
+		r = reimbursementDAO.getReimbursement(r.getReimbursementId());
+		reimbursementDAO.cleanTest(r);
 	}
 }

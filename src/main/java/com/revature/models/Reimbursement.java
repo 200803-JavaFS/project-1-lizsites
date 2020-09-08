@@ -49,12 +49,12 @@ public class Reimbursement implements Serializable {
 	@Column(name="reimb_description")
 	private String description;
 	
-	@ManyToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER , cascade=CascadeType.ALL)
 	@JoinColumn(name="reimb_author")
 	private ERSUser ersAuthor;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="reimb_resolver")
 	private ERSUser ersResolver;
 	
