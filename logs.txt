@@ -179,3 +179,19 @@
 2020-09-08 00:52:12 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
 2020-09-08 00:52:12 INFO  UserDAOImp:27 - getting User with name jill1
 2020-09-08 00:52:12 INFO  ReimbursementsDAOImp:110 - removed reimbursement with id : 58
+2020-09-08 08:55:38 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 08:55:38 INFO  ReimbursementsDAOImp:123 - got all reimbursements
+2020-09-08 08:55:38 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 08:55:38 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=59, amount=400.0, timeSubmitted=2020-09-08 08:55:38.467, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-08 08:55:38 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-08 08:55:39 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 08:55:39 INFO  ReimbursementsDAOImp:110 - removed reimbursement with id : 59
+2020-09-08 10:21:19 INFO  UserDAOImp:45 - getting all users
+2020-09-08 10:21:19 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 10:21:19 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]
+2020-09-08 10:23:18 INFO  UserDAOImp:45 - getting all users
+2020-09-08 10:23:18 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 10:23:18 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]
+2020-09-08 10:25:51 INFO  UserDAOImp:45 - getting all users
+2020-09-08 10:25:51 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 10:25:51 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]

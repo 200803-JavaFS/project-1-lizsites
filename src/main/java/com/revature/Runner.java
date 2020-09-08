@@ -18,9 +18,12 @@ public class Runner {
 		UserDAO userDAO = new UserDAOImp();
 		
 		List<ERSUser> u = userDAO.getAllUsers();
-		System.out.println(u.get(0));
-		UserRoles role = u.get(0).getUserrole();
-		System.out.println(role);
+		for (ERSUser ers : u) {
+			System.out.println(ers.getPassword().hashCode());
+			//ers.setPassword(Integer.toString(ers.getPassword().hashCode()));
+			//userDAO.updateUser(ers);
+		}
+		
 		
 	
 		System.out.println(userDAO.getUserByUsername("melia23"));

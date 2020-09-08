@@ -86,7 +86,7 @@ public class ServiceTests {
 	}
 	@AfterClass
 	public static void breakDownWholeTest() {
-		r = reimbursementDAO.getReimbursement(r.getReimbursementId());
+		
 		reimbursementDAO.cleanTest(r);
 	}
 }
