@@ -20,8 +20,12 @@ public class Runner {
 		List<ERSUser> u = userDAO.getAllUsers();
 		for (ERSUser ers : u) {
 			System.out.println(ers.getPassword().hashCode());
-			//ers.setPassword(Integer.toString(ers.getPassword().hashCode()));
-			//userDAO.updateUser(ers);
+			ers.setPassword(Integer.toString(ers.getPassword().hashCode()));
+			if (userDAO.updateUser(ers)) {
+			System.out.println(ers);
+			}else {
+				System.out.println("error");
+			}
 		}
 		
 		

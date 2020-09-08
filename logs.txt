@@ -195,3 +195,12 @@
 2020-09-08 10:25:51 INFO  UserDAOImp:45 - getting all users
 2020-09-08 10:25:51 INFO  UserDAOImp:27 - getting User with name melia23
 2020-09-08 10:25:51 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]
+2020-09-08 10:42:34 INFO  UserDAOImp:45 - getting all users
+2020-09-08 10:42:34 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 10:42:34 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=password, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]
+2020-09-08 10:48:30 INFO  UserDAOImp:45 - getting all users
+2020-09-08 10:48:30 INFO  UserDAOImp:88 - User melia23 has been updated!
+2020-09-08 10:48:30 INFO  UserDAOImp:88 - User jill1 has been updated!
+2020-09-08 10:48:30 INFO  UserDAOImp:88 - User liz223 has been updated!
+2020-09-08 10:48:30 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 10:48:30 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=1216985755, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]

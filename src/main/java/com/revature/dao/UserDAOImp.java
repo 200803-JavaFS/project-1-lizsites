@@ -82,7 +82,9 @@ public class UserDAOImp implements UserDAO {
 	public boolean updateUser(ERSUser u) {
 		Session sess = HibernateUtil.getSession();
 		try {
-		sess.merge(u);
+			org.hibernate.Transaction tx = sess.beginTransaction();
+			sess.merge(u);
+			tx.commit();
 		userLogger.info("User " + u.getUsername() + " has been updated!");
 		return true;
 		} catch (HibernateException e) {

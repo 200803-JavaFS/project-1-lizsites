@@ -11,10 +11,10 @@ public class Proj1LoginService {
 	
 	private static UserDAO userDAO = new UserDAOImp();
 	public boolean login(LoginDTO l) {
-		System.out.println(l.password.hashCode());
+		
 		ERSUser u = userDAO.getUserByUsername(l.username);
 		System.out.println(u);
-		if (u.getPassword().equals(l.password)) {
+		if (u.getPassword().equals(Integer.toString(l.password.hashCode()))) {
 			return true;
 		}
 	return false;

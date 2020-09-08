@@ -33,7 +33,6 @@ public class LoginControllers {
 		}
 
 		String body = new String(sb);
-		System.out.println("login controllers loginDTO :" + body);
 		LoginDTO l = om.readValue(body, LoginDTO.class);
 
 		if (ls.login(l)) {
