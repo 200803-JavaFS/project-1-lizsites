@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_users", schema="public")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userId")
 public class ERSUser implements Serializable {
 	
 	
@@ -61,10 +61,12 @@ public class ERSUser implements Serializable {
 	
 	
 	@OneToMany(mappedBy="ersAuthor", fetch=FetchType.LAZY)
+	@JsonBackReference(value="ersAuthor")
 	private List<Reimbursement> submittedReimbursements;
 
 	
 	@OneToMany(mappedBy="ersResolver", fetch=FetchType.LAZY)
+	@JsonBackReference(value="ersResolver")
 	private List<Reimbursement> resolvedReimbursements;
 	
 	

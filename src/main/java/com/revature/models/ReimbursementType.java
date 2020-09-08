@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement_type" ,schema="public")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="typeId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="typeId")
 public class ReimbursementType implements Serializable {
 	
 	
@@ -39,6 +39,7 @@ public class ReimbursementType implements Serializable {
 	private String type;
 	
 	@OneToMany(mappedBy="reimbursementType", fetch=FetchType.LAZY)
+	@JsonBackReference(value="reimbType")
 	private List<Reimbursement> reimbursements;
 
 	public ReimbursementType(int typeId, String type, List<Reimbursement> reimbursements) {

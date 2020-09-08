@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement_status", schema="public")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="statusId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="statusId")
 public class ReimbursementStatus implements Serializable {
 	/**
 	 * 
@@ -37,6 +37,7 @@ public class ReimbursementStatus implements Serializable {
 	private String status;
 	
 	@OneToMany(mappedBy="reimbursementStatus", fetch=FetchType.LAZY)
+	@JsonBackReference(value="reimbStatus")
 	List<Reimbursement> reimbursements;
 
 	public ReimbursementStatus(int statusId, String status, List<Reimbursement> reimbursements) {

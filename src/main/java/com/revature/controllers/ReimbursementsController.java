@@ -85,7 +85,7 @@ public class ReimbursementsController {
 		r.setTimeResolved(null);
 		r.setErsAuthor(u);
 		r.setErsResolver(null);
-		r.setReimbursementType(typeDAO.getTypeByTypeName(reimb.reimbType));
+		r.setReimbursementType(typeDAO.getTypeById(reimb.reimbType));
 		r.setReimbursementStatus(statusDAO.getStatusByStatusName("PENDING"));
 		ReimbursementService rs = new ReimbursementService();
 		rs.addReimbursement(r);

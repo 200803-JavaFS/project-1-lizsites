@@ -69,5 +69,17 @@ public class ReimbursementTypeDAOImp implements ReimbursementTypeDAO {
 		}
 	}
 
+	@Override
+	public ReimbursementType getTypeById(int reimbType) {
+		Session sess = HibernateUtil.getSession();
+		try {
+			return sess.get(ReimbursementType.class, reimbType);
+		} catch(HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
 	
 }

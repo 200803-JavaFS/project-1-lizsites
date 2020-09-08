@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_reimbursement", schema = "public" ) 
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="reimbursementId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="reimbursementId")
 public class Reimbursement implements Serializable {
 
 	/**

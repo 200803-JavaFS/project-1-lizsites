@@ -101,6 +101,7 @@ public class ReimbursementsDAOImp implements ReimbursementsDAO{
 	@Override
 	public List<Reimbursement> getReimbursements() {
 		Session sess = HibernateUtil.getSession();
-		return sess.createQuery("FROM Reimbursement" , Reimbursement.class).list();
+		List<Reimbursement> reimbs = sess.createQuery("FROM Reimbursement" , Reimbursement.class).list();
+		return reimbs;
 	}
 }

@@ -15,6 +15,7 @@
 		<property name="hibernate.show_sql">false</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<property name="hibernate.event.merge.entity_copy_observer">allow</property>
 		
 		<mapping class="com.revature.models.ERSUser"/>
 		<mapping class="com.revature.models.UserRoles"/>

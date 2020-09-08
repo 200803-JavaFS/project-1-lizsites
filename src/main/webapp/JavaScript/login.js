@@ -1,4 +1,4 @@
-
+let updateReimbursement;
 
 const url = "http://localhost:8080/project1/"
 document.getElementById("loginBtn").addEventListener("click", fetchFunc);
@@ -74,14 +74,14 @@ async function findAll(){
                 cell.innerHTML = reimbursement.reimbursementId;
                 row.appendChild(cell);
                 let cell2 = document.createElement("td");
-                cell2.innerHTML = reimbursement.amount;
+                cell2.innerHTML = "$ " +reimbursement.amount.toFixed(2);
                 row.appendChild(cell2);
                 let cell3 = document.createElement("td");
-                cell3.innerHTML = reimbursement.timeSubmitted;
+                cell3.innerHTML = new Date(reimbursement.timeSubmitted);
                 row.appendChild(cell3);
                 let cell4 = document.createElement("td");
                 if (reimbursement.timeResolved !== null){
-                cell4.innerHTML = reimbursement.timeResolved;
+                cell4.innerHTML = new Date(reimbursement.timeResolved);
                 } else {
                 cell4.innerHTML = "N/A";
                 }
@@ -118,7 +118,7 @@ async function findAll(){
 
 async function addFunc(){
 
-    let amount = document.getElementById("reimbAmount").value;
+    let amount = Number(document.getElementById("reimbAmount").value);
     let description = document.getElementById("reimbDescription").value;
     let type = document.getElementById("reimbType").value;
 
@@ -127,17 +127,24 @@ async function addFunc(){
         "reimbDescription" : description,
         "reimbType" : type
     }
-
-
-    let resp = await fetch(url + "reimbursements", {
-        method: 'POST',
-        body: JSON.stringify(reimb),
-        credentials: "include"
-    })
-
-    if (resp.status===201){
-        findAll();
+  
+    if (reimb.amount > 0 && reimb.type != false ){
+        console.log(reimb)
+        let resp = await fetch(url + "reimbursements", {
+            method: 'POST',
+            body: JSON.stringify(reimb),
+            credentials: "include"
+        })
+    
+        if (resp.status===201){
+            findAll();
+        }
+    } else {
+        document.getElementById("loginRow").innerText = "Reimbursement Log Failed.";
     }
+
+
+    
 }
 
 async function searchPendingFunc(){
@@ -157,16 +164,16 @@ async function searchPendingFunc(){
                 
                 row.appendChild(cell);
                 let cell2 = document.createElement("td");
-                cell2.innerHTML = reimbursement.amount;
+                cell2.innerHTML = "$ " +reimbursement.amount.toFixed(2);
                 
                 row.appendChild(cell2);
                 let cell3 = document.createElement("td");
-                cell3.innerHTML = reimbursement.timeSubmitted;
+                cell3.innerHTML = new Date(reimbursement.timeSubmitted);
                 
                 row.appendChild(cell3);
                 let cell4 = document.createElement("td");
                 if (reimbursement.timeResolved !== null){
-                cell4.innerHTML = reimbursement.timeResolved;
+                cell4.innerHTML = new Date(reimbursement.timeResolved);
                 } else {
                 cell4.innerHTML = "N/A";
                 }
@@ -207,25 +214,28 @@ async function searchPendingFunc(){
 }
 }
 async function stageFunc(reimbursement){
-    console.log(reimbursement);
+    updateReimbursement = reimbursement;
+    console.log("Function being staged :::::");
+    console.log(updateReimbursement)
     document.getElementById("update-table-body").innerHTML = "";
     document.getElementById("updateTable").style.visibility = "visible";
     let row = document.createElement("tr");
+    row.id="row";
     let cell = document.createElement("td");
     cell.id = "cell";
     cell.innerHTML = reimbursement.reimbursementId;
     row.appendChild(cell);
     let cell2 = document.createElement("td");
-    cell2.innerHTML = reimbursement.amount;
-    cell.id = "cell2";
+    cell2.innerHTML = "$ " +reimbursement.amount.toFixed(2);
+    cell2.id = "cell2";
     row.appendChild(cell2);
     let cell3 = document.createElement("td");
-    cell3.innerHTML = reimbursement.timeSubmitted;
-    cell.id = "cell3";
+    cell3.innerHTML = new Date(reimbursement.timeSubmitted);
+    cell3.id = "cell3";
     row.appendChild(cell3);
     let cell4 = document.createElement("td");
     if (reimbursement.timeResolved !== null){
-    cell4.innerHTML = reimbursement.timeResolved;
+    cell4.innerHTML = new Date(reimbursement.timeResolved);
     } else {
     cell4.innerHTML = "N/A";
     }
@@ -264,11 +274,11 @@ async function stageFunc(reimbursement){
     row.appendChild(cell9);
     if (document.getElementById("updateReim")==null){
     let button5 = document.createElement("button");
+    
     button5.addEventListener ("click", function (){
-        console.log(document.getElementById("cell8").value);
-        reimbursement.reimbursementStatus.statusId = document.getElementById("cell8").value;
-        console.log(reimbursement.reimbursementStatus.statusId);
-        updateFunc(reimbursement);
+        updateReimbursement.reimbursementStatus.statusId = document.getElementById("cell8").value;
+        updateFunc();
+        updateReimbursement = null;
     });
     button5.id = "updateReim";
     button5.innerText = "Update Reimbursement";
@@ -277,16 +287,19 @@ async function stageFunc(reimbursement){
     }
     document.getElementById("update-table-body").appendChild(row);
 }
-async function updateFunc(reimbursement){
-    let id = reimbursement.reimbursementId;
-    let amount = reimbursement.amount;
-    let submitted = reimbursement.timeSubmitted;
-    let resolved = reimbursement.timeResolved;
-    let description = reimbursement.description;
-    let author = reimbursement.ersAuthor;
-    let resolver = reimbursement.ersResolver;
-    let status = reimbursement.reimbursementStatus;
-    let type = reimbursement.reimbursementType;
+
+
+async function updateFunc(){
+    console.log("id of function about to be added " + document.getElementById("cell").innerHTML)
+    let id = updateReimbursement.reimbursementId;
+    let amount = updateReimbursement.amount.toFixed(2);
+    let submitted = updateReimbursement.timeSubmitted;
+    let resolved = updateReimbursement.timeResolved;
+    let description = updateReimbursement.description;
+    let author = updateReimbursement.ersAuthor;
+    let resolver = updateReimbursement.ersResolver;
+    let status = updateReimbursement.reimbursementStatus;
+    let type = updateReimbursement.reimbursementType;
 
 
     let reimb = {
@@ -300,8 +313,8 @@ async function updateFunc(reimbursement){
         "reimbursementStatus" : status,
         "reimbursementType" : type
     }
-
-
+    console.log("Reimbursement being updated::::")
+    console.log(reimb)
     let resp = await fetch(url + "reimbursements/" + id, {
         method: 'POST',
         body: JSON.stringify(reimb),
@@ -310,5 +323,6 @@ async function updateFunc(reimbursement){
 
     if (resp.status===201){
         findAll();
+        document.getElementById("update-table-body").innerHTML = "";
     }
 }

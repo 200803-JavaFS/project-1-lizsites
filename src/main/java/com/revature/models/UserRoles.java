@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="ers_user_roles", schema="public")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userRoleId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userRoleId")
 public class UserRoles implements Serializable {
 	/**
 	 * 
@@ -39,6 +39,7 @@ public class UserRoles implements Serializable {
 	
 	
 	@OneToMany(mappedBy="userrole", fetch=FetchType.LAZY)
+	@JsonBackReference
 	private List<ERSUser> users;
 	
 	

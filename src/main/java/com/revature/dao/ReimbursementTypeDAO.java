@@ -10,4 +10,5 @@ public interface ReimbursementTypeDAO {
 	public boolean updateType(ReimbursementType type);
 	public boolean removeType(int typeId);
 	ReimbursementType getTypeByTypeName(String Type);
+	public ReimbursementType getTypeById(int reimbType);
 }
