@@ -204,3 +204,12 @@
 2020-09-08 10:48:30 INFO  UserDAOImp:88 - User liz223 has been updated!
 2020-09-08 10:48:30 INFO  UserDAOImp:27 - getting User with name melia23
 2020-09-08 10:48:30 INFO  ReimbursementsDAOImp:43 - got reimbursemenst for User u: ERSUser [userId=1, username=melia23, password=1216985755, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin]
+2020-09-08 11:22:40 INFO  UserDAOImp:45 - getting all users
+2020-09-08 11:22:40 INFO  ReimbursementsDAOImp:123 - got all reimbursements
+2020-09-08 13:34:09 INFO  UserDAOImp:27 - getting User with name melia23
+2020-09-08 13:34:10 INFO  ReimbursementsDAOImp:123 - got all reimbursements
+2020-09-08 13:34:10 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 13:34:10 INFO  ReimbursementsDAOImp:84 - Updated reimbursement: Reimbursement [reimbursementId=67, amount=400.0, timeSubmitted=2020-09-08 13:34:10.061, timeResolved=null, description=JUnit test, ersAuthor=ERSUser [userId=1, username=melia23, password=1216985755, firstName=melia, lastName=miller, email=doggo@yahoo.com, userrole=admin], ersResolver=null, reimbursementStatus=ReimbursementStatus [statusId=2, status=APPROVED], reimbursementType=ReimbursementType [typeId=1, type=FOOD]]
+2020-09-08 13:34:10 INFO  ReimbursementsDAOImp:53 - got reimbursemenst for Reimbursement Status: ReimbursementStatus [statusId=2, status=APPROVED]
+2020-09-08 13:34:10 INFO  UserDAOImp:27 - getting User with name jill1
+2020-09-08 13:34:10 INFO  ReimbursementsDAOImp:110 - removed reimbursement with id : 67

@@ -18,23 +18,26 @@ public class Runner {
 		UserDAO userDAO = new UserDAOImp();
 		
 		List<ERSUser> u = userDAO.getAllUsers();
-		for (ERSUser ers : u) {
-			System.out.println(ers.getPassword().hashCode());
-			ers.setPassword(Integer.toString(ers.getPassword().hashCode()));
-			if (userDAO.updateUser(ers)) {
-			System.out.println(ers);
-			}else {
-				System.out.println("error");
-			}
-		}
-		
+//		for (ERSUser ers : u) {
+//			System.out.println(ers.getPassword().hashCode());
+//			ers.setPassword(Integer.toString(ers.getPassword().hashCode()));
+//			if (userDAO.updateUser(ers)) {
+//			System.out.println(ers);
+//			}else {
+//				System.out.println("error");
+//			}
+//		}
+//		
 		
 	
-		System.out.println(userDAO.getUserByUsername("melia23"));
-		List<Reimbursement> reimb = reimbDAO.getReimbursementsByAuthor(u.get(0));
-		for (Reimbursement r : reimb) {
-			System.out.println(r);
+//		System.out.println(userDAO.getUserByUsername("melia23"));
+//		List<Reimbursement> reimb = reimbDAO.getReimbursementsByAuthor(u.get(0));
+//		for (Reimbursement r : reimb) {
+//			System.out.println(r);
+//		}
+		List<Reimbursement> allReimbs = reimbDAO.getReimbursements();
+		for (Reimbursement q : allReimbs) {
+			System.out.println(q);
 		}
-		
 	}
 }

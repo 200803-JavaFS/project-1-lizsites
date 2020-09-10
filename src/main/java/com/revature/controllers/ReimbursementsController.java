@@ -39,11 +39,14 @@ public class ReimbursementsController {
 		UserDAO userDAO = new UserDAOImp();
 		ReimbursementsDAO reimbDAO = new ReimbursementsDAOImp();
 		HttpSession sess = req.getSession(false);
-		System.out.println((ERSUser)sess.getAttribute("user"));
+		
 		ERSUser u = userDAO.getUserByUsername(((ERSUser)sess.getAttribute("user")).getUsername());
+		
 		List<Reimbursement> reimbs;
 		if (u.getUserrole().getRoleName().equals("admin")) {
+			
 			reimbs = reimbDAO.getReimbursements();
+			res.setStatus(200);
 		} else {
 		reimbs = reimbDAO.getReimbursementsByAuthor(u);
 		}
